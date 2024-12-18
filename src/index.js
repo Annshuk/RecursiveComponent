@@ -5,7 +5,7 @@ export const familyTree = {
   //Grandfather
   name: 'John',
   age: 90,
-  children: [
+  sibling: [
     {
       name: 'Mary',
       age: 60,
@@ -17,7 +17,7 @@ export const familyTree = {
     {
       name: 'Arthur',
       age: 60,
-      children: [
+      sibling: [
         { name: 'Jr John', age: 10 },
         {
           name: 'Lily',
@@ -26,7 +26,7 @@ export const familyTree = {
         {
           name: 'Billy',
           age: 37,
-          children: [
+          sibling: [
             {
               name: 'Hank',
               age: 60,
@@ -53,16 +53,16 @@ const FamilyTree = ({ family }) => {
 
   return (
     <>
-      {family.children?.length ? (
+      {family.sibling?.length ? (
         <button onClick={expand}>
-          {family.name} {family.age} {family.children?.length ? exapndcol : ''}
+          {family.name} {family.age} {family.sibling?.length ? exapndcol : ''}
         </button>
       ) : (
         <>
           {family.name} {family.age}
         </>
       )}
-      {family?.children?.map(
+      {family?.sibling?.map(
         (child) =>
           isVisible && (
             <p style={{ paddingLeft: 20 }} key={child.name}>
